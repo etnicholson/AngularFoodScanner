@@ -8,6 +8,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScannerComponent } from './scanner/scanner.component';
+import { ItemInfoComponent } from './item-info/item-info.component';
 
 
 
@@ -15,7 +16,8 @@ import { ScannerComponent } from './scanner/scanner.component';
 @NgModule({
    declarations: [
       AppComponent,
-      ScannerComponent
+      ScannerComponent,
+      ItemInfoComponent
    ],
    imports: [
       BrowserModule,

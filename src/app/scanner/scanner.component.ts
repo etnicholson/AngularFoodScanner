@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 
 import { Result } from '@zxing/library';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scanner',
@@ -24,9 +25,7 @@ export class ScannerComponent implements OnInit {
   availableDevices: MediaDeviceInfo[];
   currentDevice: MediaDeviceInfo;
 
-  constructor(private http: HttpClient) { 
-
-
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -58,13 +57,11 @@ export class ScannerComponent implements OnInit {
   handleQrCodeResult(resultString: string) {
     console.debug('Result: ', resultString);
     this.qrResultString = resultString;
-    this.http.get('https://api.edamam.com/api/food-database/parser?upc=' +
-    this.qrResultString +
-    '&app_id=0ae6af72&app_key=12eade76ad5a3dbc2b3c636647f81741')
-    .subscribe((res: any ) => {
-      this.maintext = res.hints[0].food.foodContentsLabel;
-      console.log(res);
-  });
+
+
+    this.router.navigate(['/info/' + resultString]);
+
+
 
 
   }
