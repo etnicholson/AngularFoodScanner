@@ -50,12 +50,12 @@ export class ScannerComponent implements OnInit {
   }
 
   displayCameras(cameras: MediaDeviceInfo[]) {
-    console.debug('Devices: ', cameras);
+
     this.availableDevices = cameras;
   }
 
   handleQrCodeResult(resultString: string) {
-    console.debug('Result: ', resultString);
+
     this.qrResultString = resultString;
 
 
@@ -67,7 +67,7 @@ export class ScannerComponent implements OnInit {
   }
 
   onDeviceSelectChange(selectedValue: string) {
-    console.debug('Selection changed: ', selectedValue);
+
     this.currentDevice = this.scanner.getDeviceById(selectedValue);
   }
 
